@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunrise Rescue — Receipt Request</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="hdr">
+    <div class="hdr-inner">
+      <div class="logo">🐾 Sunrise Rescue</div>
+      <div class="tag">Foster-based 501(c)(3) cat rescue · San Diego &amp; South Orange County</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>Donation / Adoption Fee Receipt</h1>
+      <p class="lede">
+        Use this form to generate an official receipt. When you submit, three things happen automatically:
+      </p>
+      <ol class="how">
+        <li>A PDF receipt is generated with the details below.</li>
+        <li>The receipt is emailed to the recipient <em>and</em> to Sunrise Rescue's records inbox.</li>
+        <li>The record is posted to the Sunrise Rescue admin system for the books.</li>
+      </ol>
+
+      <form id="receiptForm" novalidate>
+        <fieldset>
+          <legend>Recipient (the person who paid / donated)</legend>
+
+          <div class="row">
+            <label>
+              <span>Full name <em>*</em></span>
+              <input name="donor_name" id="donor_name" type="text" required autocomplete="name" />
+            </label>
+
+            <label>
+              <span>Email <em>*</em></span>
+              <input name="donor_email" id="donor_email" type="email" required autocomplete="email" />
+            </label>
+          </div>
+
+          <div class="row">
+            <label>
+              <span>Mailing address (optional, used for tax-deduction records)</span>
+              <input name="donor_address" id="donor_address" type="text" autocomplete="street-address" />
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Receipt details</legend>
+
+          <div class="row">
+            <label>
+              <span>Type <em>*</em></span>
+              <select name="receipt_type" id="receipt_type" required>
+                <option value="Donation">Donation</option>
+                <option value="Adoption Fee">Adoption Fee</option>
+                <option value="Foster Reimbursement">Foster Reimbursement</option>
+                <option value="Event / Merch">Event / Merch</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Amount (USD) <em>*</em></span>
+              <input name="amount" id="amount" type="number" min="0" step="0.01" required inputmode="decimal" />
+            </label>
+
+            <label>
+              <span>Date received <em>*</em></span>
+              <input name="date_received" id="date_received" type="date" required />
+            </label>
+          </div>
+
+          <div class="row">
+            <label>
+              <span>Payment method <em>*</em></span>
+              <select name="payment_method" id="payment_method" required>
+                <option value="PayPal">PayPal</option>
+                <option value="Credit / Debit Card">Credit / Debit Card</option>
+                <option value="Cash">Cash</option>
+                <option value="Check">Check</option>
+                <option value="Venmo">Venmo</option>
+                <option value="Zelle">Zelle</option>
+                <option value="In-kind goods">In-kind goods</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Reference / transaction # (optional)</span>
+              <input name="reference" id="reference" type="text" />
+            </label>
+
+            <label>
+              <span>Animal name (if adoption fee)</span>
+              <input name="animal_name" id="animal_name" type="text" placeholder="e.g. Bernice" />
+            </label>
+          </div>
+
+          <div class="row">
+            <label class="full">
+              <span>Notes (optional, will appear on the receipt)</span>
+              <textarea name="notes" id="notes" rows="3" placeholder="e.g. In memory of …, restricted to medical fund, etc."></textarea>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Where to send the receipt</legend>
+
+          <label class="check">
+            <input type="checkbox" name="send_to_donor" id="send_to_donor" checked />
+            <span>Email a copy to the recipient</span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="send_to_rescue" id="send_to_rescue" checked />
+            <span>Email a copy to <code>info@sunriserescue.com</code> for the records</span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="post_to_admin" id="post_to_admin" checked />
+            <span>Post the record to the Sunrise Rescue admin system</span>
+          </label>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" id="submitBtn">Generate &amp; Send Receipt</button>
+          <button type="button" id="previewBtn" class="ghost">Preview PDF only</button>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <p class="footer">
+      Sunrise Rescue is a 501(c)(3) non-profit. No goods or services were provided in exchange for donations
+      unless otherwise noted. Keep this receipt for your tax records.
+    </p>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

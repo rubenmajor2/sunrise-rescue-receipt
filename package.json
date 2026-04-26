@@ -1,0 +1,25 @@
+{
+  "name": "sunrise-rescue-receipt",
+  "version": "1.0.0",
+  "description": "Donation/adoption-fee receipt form for Sunrise Rescue. Generates a PDF receipt, emails it to the donor and to Sunrise Rescue, and posts the record to the Sunrise Rescue admin system.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test:e2e": "npx playwright test",
+    "playwright:install": "npx playwright install chromium"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.13",
+    "pdfkit": "^0.15.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0"
+  }
+}

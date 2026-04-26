@@ -1,0 +1,39 @@
+# Render.com blueprint for the Sunrise Rescue receipt form.
+# Creates a free web service. After the first deploy, set the
+# environment variables (especially ACCESS_TOKEN, SMTP_*, ADMIN_POST_URL)
+# in the Render dashboard.
+
+services:
+  - type: web
+    name: sunrise-rescue-receipt
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 10000
+      - key: ACCESS_TOKEN
+        generateValue: true   # Render auto-generates; share the URL with token to Jenny
+      - key: ORG_NAME
+        value: Sunrise Rescue
+      - key: ORG_EIN
+        value: 85-1162020
+      - key: ORG_ADDRESS_LINE_2
+        value: San Diego, CA
+      - key: ORG_WEBSITE
+        value: https://sunriserescue.com
+      - key: MAIL_FROM_NAME
+        value: Sunrise Rescue
+      - key: MAIL_FROM_ADDRESS
+        value: info@sunriserescue.com
+      - key: MAIL_BCC_RESCUE
+        value: info@sunriserescue.com
+      # The following you set manually in the Render dashboard once Jenny
+      # provides them. They are intentionally NOT in the repo.
+      # SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS
+      # ADMIN_POST_URL, ADMIN_POST_TOKEN

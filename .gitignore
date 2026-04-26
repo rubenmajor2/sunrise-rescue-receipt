@@ -1,0 +1,7 @@
+node_modules/
+.env
+admin-log.jsonl
+receipts/
+playwright-report/
+test-results/
+.DS_Store

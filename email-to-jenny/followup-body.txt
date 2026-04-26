@@ -1,0 +1,25 @@
+Hi Jenny,
+
+Quick follow-up to my last email. Two things.
+
+1. Updated sample PDF attached. I baked the Sunrise Rescue EIN (85-1162020) into the receipt header so every receipt that comes out of the form will show it automatically. Donors who itemize will need it for their tax records, so it's nice to have it printed right on the receipt.
+
+2. About that ".env, restart, full pipeline live" line in my last email — that was me writing in shorthand, my bad. Plain English version:
+
+The form has three things it can do when someone clicks "Generate & Send Receipt":
+  a) build the PDF (this already works, no setup needed)
+  b) email the PDF to the donor and copy info@sunriserescue.com
+  c) send the same info to whatever admin/bookkeeping system you want to track receipts in
+
+Right now (a) works out of the box. (b) and (c) need two pieces of info from you before I can turn them on:
+
+  - For the email part: the login info for info@sunriserescue.com so the form can send through that account. If you use Google Workspace, that's just an "app password" generated from Google. If you use something else (Zoho, Outlook, etc.), the username + password for that.
+
+  - For the admin/bookkeeping part: this is just "where do you want every receipt's data to land?" If you already have a donor database, a Google Sheet, a QuickBooks workflow, or anything else where you log donations, let me know what it is and I can wire the form to drop the records straight in there. If you don't have one and you'd like one, I can spin up a simple dashboard that shows every receipt the form has generated, sortable by date, donor, amount.
+
+Until you send those two things, the form still works fine — it just saves the PDFs to a folder on the computer running it instead of emailing or syncing.
+
+Take a look at the new PDF whenever you get a sec, and let me know your preferences for the email login and the admin/bookkeeping side.
+
+Thanks,
+Ruben
